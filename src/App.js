@@ -9,7 +9,7 @@ function App() {
     age: "",
     position: "",
     email: "",
-    phoneNumber: "",
+    phonenumber: "",
     department: "",
   });
 
@@ -21,7 +21,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:4000/api/employees", {
+    const response = await fetch("https://employeemanagementserver-d494.onrender.com/api/employees", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,14 +36,14 @@ function App() {
       age: "",
       position: "",
       email: "",
-      phoneNumber: "",
+      phonenumber: "",
       department: "",
     });
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:4000/api/employees");
+      const response = await fetch("https://employeemanagementserver-d494.onrender.com/api/employees");
       const employeeData = await response.json();
       console.log("Employee Data:", employeeData);
       setEmployees(employeeData);
@@ -125,9 +125,9 @@ function App() {
               </td>
               <td>
                 <input
-                  type="tel"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
+                  type="number"
+                  name="phonenumber"
+                  value={formData.phonenumber}
                   onChange={handleInputChange}
                   className="form-control"
                   required
